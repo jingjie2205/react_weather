@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
 import "./style/Home.css"
 import axios from 'axios';
-import ReactMapGL, {Marker, Popup} from "react-map-gl"
-import useSwr from "swr";
+import Map from './Map';
+// import ReactMapGL, {Marker, Popup} from "react-map-gl"
+// import useSwr from "swr";
 
 const Home = () => {
-    const url = "https://api.data.gov.sg/v1/environment/2-hour-weather-forecast";
     const [input, setInput] = useState("");     //store user textbox input
     const [weather, setWeather] = useState("");     //store weather status
     const [temp, setTemp] = useState([]);       //store temp
     const [loc, setLoc] = useState([]);       //store location
-    const [selectedData, setSelectedData] = useState(null);
 
-    //2-hour api 
+    //GET 2-hour api 
     const get2HWeatherData = (input) =>{
         const locations = ["Ang Mo Kio", "Bedok", "Bishan", "Boon Lay", "Bukit Batok", "Bukit Merah", "Bukit Panjang", "Bukit Timah", "Central Water Catchment", "Changi", "Chua Chu Kang", "Clementi", "City", "Geylang", "Hougang", "Jalan Bahar", "Jurong East", "Jurong Island", "Jurong West", "Kallang", "Lim Chu Kang", "Mandai", "Marine Parade", "Novena", "Pasir Ris", "Paya Lebar", "Pioneer", "Pulau Tekong",  "Pulau Ubin", "Punggol", "Queenstown", "Seletar", "Sembawang", "Sengkang", "Sentosa", "Serangoon", "Southern Islands", "Sungei Kadut", "Tampines", "Tanglin", "Tengah", "Toa Payoh", "Tuas", "Western Islands", "Western Water Catchment",  "Woodlands", "Yishun"];
         axios({
@@ -32,7 +31,7 @@ const Home = () => {
     }
 
 
-    //24-hour api 
+    //GET 24-hour api 
     const get24HWeatherData = () =>{
         axios({
             method:"GET",
@@ -45,20 +44,6 @@ const Home = () => {
                 console.log(error);
             })
     }
-
-    const [viewport, setViewport] = useState({
-        latitude: 1.34,
-        longitude: 103.84,
-        width: "1000px",
-        height: "600px",
-        zoom: 10.5
-    })
-
-    const fetcher = (...args) => fetch(...args).then(response => response.json()); 
-    const {data, error} = useSwr(url, fetcher);
-    const datas = data && !error ? data.area_metadata:[];
-    const dataforecast = data && !error ? data:[];
-    console.log(dataforecast);
 
     return (
         <div className="home">
@@ -138,47 +123,8 @@ const Home = () => {
                     <div className="temp"> {temp} </div>
                     <div className="weather">{weather}</div>
                 </div>
-            </div>   
-
-            <div>
-                <ReactMapGL 
-                    {...viewport}
-                    mapboxApiAccessToken={"pk.eyJ1IjoiamluZ2ppZTIyMDUiLCJhIjoiY2tqYjVrYzM3MnV6NTJwcGRtd3BwaXhlcSJ9.DEfPLacpsYGfm0SVub3x4Q"}
-                    onViewportChange={viewport =>{
-                        setViewport(viewport); 
-                    }}
-                    mapStyle="mapbox://styles/mapbox/streets-v11">
-
-                    {datas.map(data => (
-                        <Marker
-                            key = {data.name}
-                            latitude = {data.label_location.latitude}
-                            longitude = {data.label_location.longitude}>
-                                
-                            <button 
-                                className="loc-btn"
-                                onClick = {e =>{
-                                    e.preventDefault();
-                                    setSelectedData(data);
-                                }}>
-                                <img src="https://img.icons8.com/color/48/000000/marker.png" alt="wind"/>
-                            </button>
-                        </Marker>
-                    ))}
-
-                    {selectedData ? (
-                        <Popup 
-                        latitude = {selectedData.label_location.latitude}
-                        longitude = {selectedData.label_location.longitude}>
-                            <div>
-                                <h1>{selectedData.name}</h1>
-                            </div>
-                        </Popup>
-                    ) : null }
-
-                </ReactMapGL>
-            </div>
-                
+            </div> 
+                <Map />
         </div>
     )
 }
