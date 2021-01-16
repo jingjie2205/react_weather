@@ -1,0 +1,88 @@
+/* ======================== West ======================== */
+.button-west{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-west img{
+    width: 130%;
+    height: auto;
+}
+
+.pop-west{
+    z-index: 999;
+}
+
+/* ======================== Central ======================== */
+
+.button-central{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-central img{
+    width: 130%;
+    height: auto;
+}
+
+.pop-central{
+    z-index: 999;
+}
+
+/* ======================== North ======================== */
+
+.button-north{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-north img{
+    width: 130%;
+    height: auto;
+}
+
+.pop-north{
+    z-index: 999;
+}
+
+/* ======================== South ======================== */
+
+.button-south{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-south img{
+    width: 130%;
+    height: auto;
+}
+
+.pop-south{
+    z-index: 999;
+}
+
+/* ======================== East ======================== */
+
+.button-east{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-east img{
+    width: 130%;
+    height: auto;
+}
+
+.pop-east{
+    z-index: 999;
+}

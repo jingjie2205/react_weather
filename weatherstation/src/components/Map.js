@@ -21,7 +21,6 @@ const Map = () => {
     const {data, error} = useSwr(url, fetcher);  //store api data into data var
     const datas = data && !error ? data.area_metadata:[];  //extract data.area_metadata as datas
     const dataforecast = data && !error ? data.items[0].forecasts:[];  //extract data.items.forecasts as dataforecasts
-    console.log(datas);
 
     useEffect(() => {
         const esclistener = e => {
@@ -56,6 +55,7 @@ const Map = () => {
                                     setIndex(index);
                                 }}>
                                 <img src="https://img.icons8.com/color/48/000000/marker.png" alt="wind"/>
+
                             </button>
                         </Marker>
                     ))}

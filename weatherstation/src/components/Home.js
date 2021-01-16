@@ -19,7 +19,7 @@ const Home = () => {
             url: "https://api.data.gov.sg/v1/environment/2-hour-weather-forecast"
         })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 // setApidata([response]);
                 setWeather(response.data.items[0].forecasts[locations.indexOf(input)].forecast);
                 setLoc(response.data.items[0].forecasts[locations.indexOf(input)].area);
@@ -44,6 +44,7 @@ const Home = () => {
                 console.log(error);
             })
     }
+
 
     return (
         <div className="home">
@@ -121,6 +122,9 @@ const Home = () => {
 
                 <div className="weatherbox">
                     <div className="temp"> {temp} </div>
+                    <div>
+                        <img id="weather_img" src={"/images/" + weather +".png"}/>
+                    </div>
                     <div className="weather">{weather}</div>
                 </div>
             </div> 
