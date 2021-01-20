@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+}
+
+.app_mainheader{
+    margin: auto;
+    padding: 35px;
+    text-align: center;
+}
+
+
+.app_statusbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.app_mainbody{
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.app_maincontent{
+    flex: 0.9;
+}
+
+@media (max-width: 990px) {
+    .app_mainbody{
+        flex-direction: column;
+    }
+}
