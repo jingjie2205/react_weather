@@ -1,0 +1,12 @@
+.statusbox{
+    flex: 1;
+    cursor: pointer;
+}
+
+.statusbox:not(:last-child){
+    margin-right: 15px;
+}
+
+.statusbox--selected{
+    border-top: 10px solid rgb(26, 137, 228);
+}

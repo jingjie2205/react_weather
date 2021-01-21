@@ -36,7 +36,7 @@ const Covidgraph = () => {
                     borderWidth: 1
                 }]
             }}
-            height = {400}
+            height = {600}
             width = {500}
             options = {{
                 maintainAspectRatio: false,

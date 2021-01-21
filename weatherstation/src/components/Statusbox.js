@@ -1,12 +1,16 @@
 import React from 'react'
 import { Card, CardContent, Typography} from "@material-ui/core"
+import "./style/Statusbox.css"
 
-function Statusbox({status, num}) {
+function Statusbox({status, num, active, isRed, isYellow, isDred, ...props}) {
     return (
-        <Card>
+        <Card 
+        onClick = {props.onClick} 
+        className ={ `statusbox 
+        ${active && `statusbox--selected`}` }>
             <CardContent>
                 <Typography className="Statusbox_status" color="textSecondary">{status}</Typography>    
-                <h2 className="Statusbox_num">{num}</h2>
+                <h1 className="Statusbox_num">{num}</h1>
             </CardContent>
         </Card>
     )
