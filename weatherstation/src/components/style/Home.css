@@ -1,36 +1,61 @@
-.searchbox{
-    width: 100%;
-    margin: 0 0 75px;
+div.background{
+background-image: url("https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg");
+background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg');
+text-align: center;
+position: fixed;
+min-width: 100%;
+min-height: 100%;
+background-size: cover;
+background-position: center;
+/* filter: blur(3px); */
+z-index: -1;
 }
 
-.searchbox .searchbar{
-    display: block;
-    width: 100%;
-    padding: 15px;
-    appearance: none;
-    background: none;
-    border: none;
-    outline: none;
-
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 0px 0px 16px 16px;
-    /* margin-top: -25px; */
-
-    box-shadow: 8px 5px rgba(0, 0, 0, 0.2);
-
-    color: #313131;
-    font-size: 20px;
-    transition: 0.4s ease;
+body{
+    font-family: 'helvetica neue ultra thin', sans-serif;
 }
 
-.loc-btn{
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
+main{
+    
 }
 
-.loc-btn img{
-    width: 25px;
-    height: 30px;
+.home_mainheader{
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.home_body{
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.body_main{
+    text-align: center;
+    height: 300px;
+    width: 600px;
+    vertical-align: middle;
+}
+
+.content_container{
+    border-radius: 20px;
+    /* box-shadow: 3px 6px rgba(0, 0, 0, 0.2); */
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.main_weather{
+    color: #FFF;
+    font-size: 40px;
+    font-weight: 700;
+    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.main_temp{
+    color: #FFF;
+    font-size: 60px;
+    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+    font-weight: 900;
+
 }

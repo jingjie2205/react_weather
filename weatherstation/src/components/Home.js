@@ -1,134 +1,93 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./style/Home.css"
 import axios from 'axios';
 import Map from './Map';
+import {MenuItem, FormControl, Select, Card, CardContent} from "@material-ui/core"
 // import ReactMapGL, {Marker, Popup} from "react-map-gl"
 // import useSwr from "swr";
 
 const Home = () => {
-    const [input, setInput] = useState("");     //store user textbox input
-    const [weather, setWeather] = useState("");     //store weather status
-    const [temp, setTemp] = useState([]);       //store temp
-    const [loc, setLoc] = useState([]);       //store location
+    const [lscountries, setLscountries] = useState([]);
+    const [country, setCountry] = useState("Singapore");   
+    const [description, setDescription] = useState([]); 
+    const [icon, setIcon] = useState("");
+    const [temp, setTemp] = useState("");
 
-    //GET 2-hour api 
-    const get2HWeatherData = (input) =>{
-        const locations = ["Ang Mo Kio", "Bedok", "Bishan", "Boon Lay", "Bukit Batok", "Bukit Merah", "Bukit Panjang", "Bukit Timah", "Central Water Catchment", "Changi", "Chua Chu Kang", "Clementi", "City", "Geylang", "Hougang", "Jalan Bahar", "Jurong East", "Jurong Island", "Jurong West", "Kallang", "Lim Chu Kang", "Mandai", "Marine Parade", "Novena", "Pasir Ris", "Paya Lebar", "Pioneer", "Pulau Tekong",  "Pulau Ubin", "Punggol", "Queenstown", "Seletar", "Sembawang", "Sengkang", "Sentosa", "Serangoon", "Southern Islands", "Sungei Kadut", "Tampines", "Tanglin", "Tengah", "Toa Payoh", "Tuas", "Western Islands", "Western Water Catchment",  "Woodlands", "Yishun"];
-        axios({
-            method:"GET",
-            url: "https://api.data.gov.sg/v1/environment/2-hour-weather-forecast"
+    //get local country json file 
+    useEffect(() => {
+        var data = require('D:/weather_react/weatherstation/src/data/countries.json');
+        setLscountries(data);
+    }, []);
+
+    //display default value (SG) data
+    useEffect(() => {
+        fetch("https://api.weatherbit.io/v2.0/forecast/daily?city=Singapore&key=349c00f0a1f9440b89703a5fb036c265&days=7")
+            .then((response) => response.json())
+            .then((data) => {
+                setDescription(data.data[0].weather.description);
+                setIcon(data.data[0].weather.icon);
+                setTemp(data.data[0].temp);
+            })
+    }, []);
+
+    //onchange event handler
+    const countrychange = async (evt) => {
+    const countryname = evt.target.value;
+    setCountry(countryname);
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${countryname}&key=349c00f0a1f9440b89703a5fb036c265&days=7`
+    await fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
         })
-            .then((response) => {
-                // console.log(response);
-                // setApidata([response]);
-                setWeather(response.data.items[0].forecasts[locations.indexOf(input)].forecast);
-                setLoc(response.data.items[0].forecasts[locations.indexOf(input)].area);
-                
-            })
-            .catch((error) => {
-                console.log(error);
-            })
     }
-
-
-    //GET 24-hour api 
-    const get24HWeatherData = () =>{
-        axios({
-            method:"GET",
-            url: "https://api.data.gov.sg/v1/environment/24-hour-weather-forecast"
-        })
-            .then((response) => {
-                setTemp(response.data.items[0].general.temperature.low + "°c");
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
-
 
     return (
-        <div className="home">
-            <div className="searchbox">
-                <input
-                    type="text" 
-                    list = "location_select"
-                    placeholder = "Enter Location"
-                    value={input} 
-                    onChange= {(e) => setInput(e.target.value)}
-                    />
-
-                    <datalist id = "location_select">
-                        <option value = "Ang Mo Kio"/>
-                        <option value = "Bedok"/>    
-                        <option value = "Bishan"/>
-                        <option value = "Boon Lay"/>
-                        <option value = "Bukit Batok"/>
-                        <option value = "Bukit Merah"/>
-                        <option value = "Bukit Panjang"/>
-                        <option value = "Bukit Timah"/>
-                        <option value = "Central Water Catchment"/>
-                        <option value = "Changi"/>
-                        <option value = "Chua Chu Kang"/>
-                        <option value = "Clementi"/>
-                        <option value = "City"/>
-                        <option value = "Geylang"/>    
-                        <option value = "Hougang"/>
-                        <option value = "Jalan Bahar"/>
-                        <option value = "Jurong East"/>
-                        <option value = "Jurong Island"/>
-                        <option value = "Jurong West"/>
-                        <option value = "Kallang"/>
-                        <option value = "Lim Chu Kang"/>
-                        <option value = "Mandai"/>
-                        <option value = "Marine Parade"/>
-                        <option value = "Novena"/>
-                        <option value = "Pasir Ris"/>
-                        <option value = "Paya Lebar"/>
-                        <option value = "Pioneer"/>
-                        <option value = "Pulau Tekong"/>    
-                        <option value = "Pulau Ubin"/>
-                        <option value = "Punggol"/>
-                        <option value = "Queenstown"/>
-                        <option value = "Seletar"/>
-                        <option value = "Sembawang"/>
-                        <option value = "Sengkang"/>
-                        <option value = "Sentosa"/>
-                        <option value = "Serangoon"/>
-                        <option value = "Southern Islands"/>
-                        <option value = "Sungei Kadut"/>
-                        <option value = "Tampines"/>
-                        <option value = "Tanglin"/>    
-                        <option value = "Tengah"/>
-                        <option value = "Toa Payoh"/>
-                        <option value = "Tuas"/>
-                        <option value = "Western Islands"/>
-                        <option value = "Western Water Catchment"/>
-                        <option value = "Woodlands"/>
-                        <option value = "Yishun"/>  
-                    </datalist>
-                <button 
-                    onClick = {() => {
-                        get2HWeatherData(input);
-                        get24HWeatherData();
-                    }}>
-                        Search
-                </button>        
+        <div className="background">
+        <div className="home" >
+            
+            <div className="home_mainheader">
+                <FormControl className="country_dropdown" style={{minWidth: 150}}>
+                    <Select 
+                    variant="standard"
+                    value = {country}
+                    onChange = {countrychange}>
+                        {lscountries.map((country) => (
+                            <MenuItem value = {country.country_name}>{country.country_name}</MenuItem>
+                        ))}
+                    </Select>    
+                </FormControl>
             </div>
 
-            <div className = "data-info">
-                <div className="locationbox">
-                    <div className="location">{loc}</div>
-                </div>
 
-                <div className="weatherbox">
-                    <div className="temp"> {temp} </div>
-                    <div>
-                        <img id="weather_img" src={"/images/" + weather +".png"}/>
+            <div className="home_body">
+
+                <div className="content_container">
+                    <div className="body_low">
+                        low
                     </div>
-                    <div className="weather">{weather}</div>
-                </div>
-            </div> 
-                <Map />
+
+                    <div className="body_main">
+                        
+                        <div className = "main_card">
+                            <img src={"https://www.weatherbit.io/static/img/icons/" + icon + ".png"} />
+                            <h1 className="main_weather">{description}</h1>
+                            <h1 className="main_temp">{temp}°</h1>
+                        </div>
+                    </div>
+
+                    <div className="body_high">
+                        high
+                    </div>
+                </div>    
+
+            </div>    
+
+
+            <div className="home_footer">
+                
+            </div>    
+        </div>
         </div>
     )
 }
