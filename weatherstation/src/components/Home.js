@@ -26,6 +26,9 @@ const Home = () => {
     const [api5, setApi5] = useState({});
     const [icon6, setIcon6] = useState("");
 
+    const [api6, setApi6] = useState({});
+    const [icon7, setIcon7] = useState("");
+
     //get local country json file 
     useEffect(() => {
         // var data = require('D:/weather_react/weatherstation/src/data/countries.json');
@@ -58,7 +61,8 @@ const Home = () => {
                 setApi5(data.data[5]);
                 setIcon6(data.data[5].weather.icon);
 
-                console.log(data);
+                setApi6(data.data[6]);
+                setIcon7(data.data[6].weather.icon);
             })
     }, []);
 
@@ -91,6 +95,9 @@ const Home = () => {
 
             setApi5(data.data[5]);
             setIcon6(data.data[5].weather.icon);
+
+            setApi6(data.data[6]);
+            setIcon7(data.data[6].weather.icon);
         })
     }
 
@@ -111,44 +118,32 @@ const Home = () => {
                         </Select>    
                     </FormControl>
                 </div>
-
-
-                <div className="home_body">
-
-                    <div className="content_container">
-                        <div className="body_low">
-                            low
-                        </div>
-
-                        <div className="body_main">
-                            
-                            <div className = "main_card">
-                                <img src={"images/" + icon + ".png"}/>
-                                {/* <img src={"https://www.weatherbit.io/static/img/icons/" + icon + ".png"} /> */}
-                                <h1 className="main_weather">{description}</h1>
-                                <h1 className="main_temp">{temp}°</h1>
+                
+                    <div className="home_body">
+                        <div className="content_container">
+                            <div className="body_main">
+                                <div className = "main_card">
+                                    <img src={"images/" + icon + ".png"}/>
+                                    <h1 className="main_description">{description}</h1>
+                                    <h1 className="main_temp">{temp}°</h1>
+                                </div>
                             </div>
-                        </div>
-
-                        <div className="body_high">
-                            high
-                        </div>
+                        </div>    
                     </div>    
 
-                </div>    
-
-
-                <div className="home_footer">
-                    <div className="footer_main_container">
-                        <div className="footer_main">
-                            <WeatherCard info = {api} icon = {icon2}/>
-                            <WeatherCard info = {api2} icon = {icon3}/>
-                            <WeatherCard info = {api3} icon = {icon4}/>
-                            <WeatherCard info = {api4} icon = {icon5}/>
-                            <WeatherCard info = {api5} icon = {icon6}/>
+                    <div className="home_footer">
+                        <div className="footer_main_container">
+                            <div className="footer_main">
+                                <WeatherCard info = {api} icon = {icon2}/>
+                                <WeatherCard info = {api2} icon = {icon3}/>
+                                <WeatherCard info = {api3} icon = {icon4}/>
+                                <WeatherCard info = {api4} icon = {icon5}/>
+                                <WeatherCard info = {api5} icon = {icon6}/>
+                                <WeatherCard info = {api6} icon = {icon7}/>
+                            </div>
                         </div>
-                    </div>
-                </div>    
+                    </div>    
+                   
             </div>
         </div>
         

@@ -121,7 +121,7 @@ function Covidhome() {
                             </Card>    
                         </div>    
                     </div>
-                </div>   
+            </div>   
         </div>        
     )
 }

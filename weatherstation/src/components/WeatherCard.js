@@ -14,10 +14,10 @@ function WeatherCard({ info, icon}) {
                 <img src={"images/" + icon + ".png"}/>
                 <div className="temp_container">
                     <div className="low">
-                        {low}
+                        {low}°
                     </div>
                     <div className="high">
-                        {high}
+                        {high}°
                     </div>
                 </div> 
         </Card>                     

@@ -3,13 +3,22 @@
 }
 
 .container_date{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
     text-align: center;
 }
 
 .low{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
     float: left;
 }
 
 .high{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
     float: right;
 }
