@@ -66,16 +66,18 @@ function Covidhome() {
                     <div>
                         <div className='app_mainheader' >
                             <h1>COVID-19 GRAPH</h1>
-                            <FormControl className="country_dropdown" style={{minWidth: 150}}>
-                                <Select 
-                                variant="standard" 
-                                value = {country}
-                                onChange = {countrychange}>
-                                    {lscountries.map((country) => (
-                                        <MenuItem value = {country.ISO2}>{country.name}</MenuItem>
-                                    ))}
-                                </Select>    
-                            </FormControl>
+                            <div className="country_dropdown">
+                                <FormControl style={{minWidth: 150}}>
+                                    <Select 
+                                    variant="standard" 
+                                    value = {country}
+                                    onChange = {countrychange}>
+                                        {lscountries.map((country) => (
+                                            <MenuItem value = {country.ISO2}>{country.name}</MenuItem>
+                                        ))}
+                                    </Select>    
+                                </FormControl>
+                            </div>    
                         </div>
 
                         <div className="app_mainbody">
@@ -109,9 +111,9 @@ function Covidhome() {
                                     onClick={(e) => setStatustype("Active")}
                                     active={statustype === "Active"}/>
                                 </div>
-                                    <div className="app_graph">
-                                        <Graph state = {statustype} country={country}/>
-                                    </div>
+                                <div className="app_graph">
+                                    <Graph state = {statustype} country={country}/>
+                                </div>
                             </div>    
                             <Card className="app_sidebar">
                                 <CardContent>

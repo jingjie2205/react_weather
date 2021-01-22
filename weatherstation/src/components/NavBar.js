@@ -1,22 +1,26 @@
 import React from 'react'
 import "./style/NavBar.css"
 import { Link } from 'react-router-dom'
+import {AppBar, Toolbar, Button, Typography} from '@material-ui/core'
 
 function NavBar() {
     return (
         <div className="header">
-
-            <nav>
-                <h1>~~oOo~~</h1>
-                {/* <img className="header_logo" src = "/logo192.png" alt="https://pngimg.com/uploads/sun/sun_PNG13410.png"/> */}
-                <Link to = "/">
-                    <li>Home</li>
-                </Link>    
-                <Link to = "/covid">
-                    <li>Covid</li>
-                </Link>    
-            </nav>
-
+            <AppBar style={{ background: 'transparent'}}>
+                <Toolbar>
+                    <Typography variant="h6" style={{align : "left"}}>~~oOo~~</Typography>
+                    <Link to = "/">    
+                        <Button color='inherit'>
+                            Home
+                        </Button>
+                    </Link>  
+                    <Link to = "/covid">  
+                        <Button color='inherit'>
+                            Covid-19
+                        </Button>
+                    </Link>
+                </Toolbar>
+            </AppBar>
         </div>
     )
 }

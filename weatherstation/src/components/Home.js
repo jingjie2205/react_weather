@@ -3,6 +3,9 @@ import "./style/Home.css"
 import {MenuItem, FormControl, Select} from "@material-ui/core"
 import WeatherCard from "./WeatherCard"
 import NavBar from './NavBar';
+import { IoUmbrellaOutline, IoWaterOutline } from 'react-icons/io5';
+import { BiWind } from 'react-icons/bi';
+
 
 const Home = () => {
     const [lscountries, setLscountries] = useState([]);
@@ -28,6 +31,11 @@ const Home = () => {
 
     const [api6, setApi6] = useState({});
     const [icon7, setIcon7] = useState("");
+
+    const [humid, setHumid] = useState("");
+    const [precipitation, setPrecipitation] = useState("");
+    const [wind, setWind] = useState("");
+
 
     //get local country json file 
     useEffect(() => {
@@ -63,10 +71,12 @@ const Home = () => {
 
                 setApi6(data.data[6]);
                 setIcon7(data.data[6].weather.icon);
+
+                setHumid(data.data[0].rh);
+                setPrecipitation(data.data[0].pop);
+                setWind(Math.round(data.data[0].wind_spd));
             })
     }, []);
-
-    console.log(icon2);
 
     //onchange event handler
     const countrychange = async (evt) => {
@@ -98,6 +108,10 @@ const Home = () => {
 
             setApi6(data.data[6]);
             setIcon7(data.data[6].weather.icon);
+
+            setHumid(data.data[0].rh);
+            setPrecipitation(data.data[0].pop);
+            setWind(Math.round(data.data[0].wind_spd));
         })
     }
 
@@ -119,6 +133,7 @@ const Home = () => {
                     </FormControl>
                 </div>
                 
+                
                     <div className="home_body">
                         <div className="content_container">
                             <div className="body_main">
@@ -126,6 +141,20 @@ const Home = () => {
                                     <img src={"images/" + icon + ".png"}/>
                                     <h1 className="main_description">{description}</h1>
                                     <h1 className="main_temp">{temp}°</h1>
+                                </div>
+                                <div className="main_info">
+                                    <div className="main_precipitation">
+                                        <IoUmbrellaOutline size="1.5em"/>
+                                        <h5>{precipitation}%</h5>
+                                    </div>
+                                    <div className="main_wind">
+                                        <BiWind size="1.5em" />
+                                        <h5>{wind} m/s</h5>
+                                    </div>
+                                    <div className="main_humidity">
+                                        <IoWaterOutline size="1.5em" />
+                                        <h5>{humid}%</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>    
@@ -143,7 +172,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>    
-                   
+                 
             </div>
         </div>
         

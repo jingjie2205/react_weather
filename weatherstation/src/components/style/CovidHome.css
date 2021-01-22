@@ -16,12 +16,13 @@
 
 .app_mainheader{
     margin: auto;
-    padding: 20px;
+    padding-top: 90px;
     text-align: center;
 }
 
 
 .app_statusbox{
+    padding-bottom: 30px;
     display: flex;
     justify-content: space-between;
 }
@@ -34,6 +35,10 @@
 
 .app_maincontent{
     flex: 0.9;
+}
+.country_dropdown{
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 
 
