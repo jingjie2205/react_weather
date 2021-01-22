@@ -6,17 +6,12 @@ position: fixed;
 min-width: 100%;
 min-height: 100%;
 background-size: cover;
-background-position: center;
 /* filter: blur(3px); */
-z-index: -1;
+z-index: -1;    
 }
 
 body{
     font-family: 'helvetica neue ultra thin', sans-serif;
-}
-
-main{
-    
 }
 
 .home_mainheader{
@@ -65,7 +60,6 @@ main{
 }
 
 .footer_main{
-    /* text-align: center; */
-    height: 150px;
-    width: 10px;
+    display: flex;
+    justify-content: space-between;
 }

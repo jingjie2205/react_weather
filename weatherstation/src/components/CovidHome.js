@@ -7,6 +7,7 @@ import Graph from "./Graph"
 import moment from 'moment';
 import { Line } from 'react-chartjs-2'
 import Covidgraph from './Covidgraph'
+import NavBar from './NavBar';
 
 function Covidhome() {
     const [lscountries, setLsCoutries] = useState([]);
@@ -60,63 +61,68 @@ function Covidhome() {
     }
     return (
         <div>
-            <div className='app_mainheader' >
-                <h1>COVID-19 GRAPH</h1>
-                <FormControl className="country_dropdown" style={{minWidth: 150}}>
-                    <Select 
-                    variant="standard" 
-                    value = {country}
-                    onChange = {countrychange}>
-                        {lscountries.map((country) => (
-                            <MenuItem value = {country.ISO2}>{country.name}</MenuItem>
-                        ))}
-                    </Select>    
-                </FormControl>
-            </div>
-
-            <div className="app_mainbody">
-                <div className = "app_maincontent">
-                    <div className="app_statusbox">
-                        <Statusbox 
-                        isRed
-                        status="Total Cases" 
-                        num={nf.format(apiinfo.Confirmed)} 
-                        onClick={(e) => setStatustype("Confirmed")}
-                        active={statustype === "Confirmed"}
-                        />
-
-                        <Statusbox 
-                        status="Recovered" 
-                        num={nf.format(apiinfo.Recovered)} 
-                        onClick={(e) => setStatustype("Recovered")}
-                        active={statustype === "Recovered"}/>
-
-                        <Statusbox 
-                        isDred
-                        status="Deaths" 
-                        num={nf.format(apiinfo.Deaths)} 
-                        onClick={(e) => setStatustype("Deaths")}
-                        active={statustype === "Deaths"}/>
-
-                        <Statusbox 
-                        isYellow
-                        status="Active" 
-                        num={nf.format(apiinfo.Active)} 
-                        onClick={(e) => setStatustype("Active")}
-                        active={statustype === "Active"}/>
-                    </div>
-                        <div className="app_graph">
-                            <Graph state = {statustype} country={country}/>
+            <div className="background">
+                <NavBar />
+                    <div>
+                        <div className='app_mainheader' >
+                            <h1>COVID-19 GRAPH</h1>
+                            <FormControl className="country_dropdown" style={{minWidth: 150}}>
+                                <Select 
+                                variant="standard" 
+                                value = {country}
+                                onChange = {countrychange}>
+                                    {lscountries.map((country) => (
+                                        <MenuItem value = {country.ISO2}>{country.name}</MenuItem>
+                                    ))}
+                                </Select>    
+                            </FormControl>
                         </div>
-                </div>    
-                <Card className="app_sidebar">
-                    <CardContent>
-                        <h3>Total Cases By Country</h3>
-                        <Table countries={table}/>
-                    </CardContent>
-                </Card>    
-            </div>    
-        </div>
+
+                        <div className="app_mainbody">
+                            <div className = "app_maincontent">
+                                <div className="app_statusbox">
+                                    <Statusbox 
+                                    isRed
+                                    status="Total Cases" 
+                                    num={nf.format(apiinfo.Confirmed)} 
+                                    onClick={(e) => setStatustype("Confirmed")}
+                                    active={statustype === "Confirmed"}
+                                    />
+
+                                    <Statusbox 
+                                    status="Recovered" 
+                                    num={nf.format(apiinfo.Recovered)} 
+                                    onClick={(e) => setStatustype("Recovered")}
+                                    active={statustype === "Recovered"}/>
+
+                                    <Statusbox 
+                                    isDred
+                                    status="Deaths" 
+                                    num={nf.format(apiinfo.Deaths)} 
+                                    onClick={(e) => setStatustype("Deaths")}
+                                    active={statustype === "Deaths"}/>
+
+                                    <Statusbox 
+                                    isYellow
+                                    status="Active" 
+                                    num={nf.format(apiinfo.Active)} 
+                                    onClick={(e) => setStatustype("Active")}
+                                    active={statustype === "Active"}/>
+                                </div>
+                                    <div className="app_graph">
+                                        <Graph state = {statustype} country={country}/>
+                                    </div>
+                            </div>    
+                            <Card className="app_sidebar">
+                                <CardContent>
+                                    <h3>Total Cases By Country</h3>
+                                    <Table countries={table}/>
+                                </CardContent>
+                            </Card>    
+                        </div>    
+                    </div>
+                </div>   
+        </div>        
     )
 }
 

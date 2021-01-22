@@ -1,3 +1,15 @@
-.paper_container{
-    display: inline-block;
+.temp_container{
+    flex-direction: row;
+}
+
+.container_date{
+    text-align: center;
+}
+
+.low{
+    float: left;
+}
+
+.high{
+    float: right;
 }

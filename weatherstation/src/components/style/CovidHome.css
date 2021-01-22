@@ -2,6 +2,18 @@
     margin: 0;
 }
 
+.background{
+    background-image: url("https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), url('https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg');
+    text-align: center;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    /* filter: blur(3px); */
+    z-index: -1;    
+}
+
 .app_mainheader{
     margin: auto;
     padding: 20px;
@@ -23,6 +35,8 @@
 .app_maincontent{
     flex: 0.9;
 }
+
+
 
 @media (max-width: 990px) {
     .app_mainbody{
