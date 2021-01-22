@@ -1,16 +1,17 @@
 import React from 'react'
 import { Card, CardContent, Typography } from "@material-ui/core"
 import moment from 'moment';
-import "./style/Paper_info.css"
+import "./style/WeatherCard.css"
 
-function Paper_info({ info, icon}) {
+function WeatherCard({ info, icon}) {
     const date = moment(info.datetime).format("ddd");
     const low = info.low_temp;
     const high = info.max_temp;
     return (
-        <Card style={{ backgroundColor: "transparent" }}>
+        <Card style={{ backgroundColor: "transparent", border: "none", boxShadow: "none" }}>
                 <div className="container_date">{date}</div>
-                <img src={"https://www.weatherbit.io/static/img/icons/" + icon + ".png"}/>
+                {/* <img src={"https://www.weatherbit.io/static/img/icons/" + icon + ".png"}/> */}
+                <img src={"images/" + icon + ".png"}/>
                 <div className="temp_container">
                     <div className="low">
                         {low}
@@ -23,4 +24,4 @@ function Paper_info({ info, icon}) {
     )
 }
 
-export default Paper_info
+export default WeatherCard

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./style/Home.css"
 import {MenuItem, FormControl, Select} from "@material-ui/core"
-import Paper_info from "./Paper_info"
+import WeatherCard from "./WeatherCard"
 import NavBar from './NavBar';
 
 const Home = () => {
@@ -9,9 +9,22 @@ const Home = () => {
     const [country, setCountry] = useState("Singapore");   
     const [description, setDescription] = useState([]); 
     const [icon, setIcon] = useState("");
-    const [icon2, setIcon2] = useState("");
     const [temp, setTemp] = useState("");
+
     const [api, setApi] = useState({});
+    const [icon2, setIcon2] = useState("");
+
+    const [api2, setApi2] = useState({});
+    const [icon3, setIcon3] = useState("");
+
+    const [api3, setApi3] = useState({});
+    const [icon4, setIcon4] = useState("");
+
+    const [api4, setApi4] = useState({});
+    const [icon5, setIcon5] = useState("");
+
+    const [api5, setApi5] = useState({});
+    const [icon6, setIcon6] = useState("");
 
     //get local country json file 
     useEffect(() => {
@@ -28,8 +41,24 @@ const Home = () => {
                 setDescription(data.data[0].weather.description);
                 setIcon(data.data[0].weather.icon);
                 setTemp(data.data[0].temp);
+
                 setApi(data.data[1]);
                 setIcon2(data.data[1].weather.icon);
+
+                setApi2(data.data[2]);
+                setIcon3(data.data[2].weather.icon);
+
+                setApi3(data.data[3]);
+                setIcon4(data.data[3].weather.icon);
+
+
+                setApi4(data.data[4]);
+                setIcon5(data.data[4].weather.icon);
+
+                setApi5(data.data[5]);
+                setIcon6(data.data[5].weather.icon);
+
+                console.log(data);
             })
     }, []);
 
@@ -43,7 +72,25 @@ const Home = () => {
     await fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            setDescription(data.data[0].weather.description);
+            setIcon(data.data[0].weather.icon);
+            setTemp(data.data[0].temp);
+
+            setApi(data.data[1]);
+            setIcon2(data.data[1].weather.icon);
+
+            setApi2(data.data[2]);
+            setIcon3(data.data[2].weather.icon);
+
+            setApi3(data.data[3]);
+            setIcon4(data.data[3].weather.icon);
+
+
+            setApi4(data.data[4]);
+            setIcon5(data.data[4].weather.icon);
+
+            setApi5(data.data[5]);
+            setIcon6(data.data[5].weather.icon);
         })
     }
 
@@ -76,8 +123,8 @@ const Home = () => {
                         <div className="body_main">
                             
                             <div className = "main_card">
-                                <img src={"https://www.weatherbit.io/static/img/icons/" + icon + ".png"} />
-                                {/* <img src={"https://raw.githubusercontent.com/manifestinteractive/weather-underground-icons/master/dist/icons/black/png/128x128/tstorms.png"} /> */}
+                                <img src={"images/" + icon + ".png"}/>
+                                {/* <img src={"https://www.weatherbit.io/static/img/icons/" + icon + ".png"} /> */}
                                 <h1 className="main_weather">{description}</h1>
                                 <h1 className="main_temp">{temp}°</h1>
                             </div>
@@ -94,9 +141,11 @@ const Home = () => {
                 <div className="home_footer">
                     <div className="footer_main_container">
                         <div className="footer_main">
-                            <Paper_info 
-                            info = {api}
-                            icon = {icon2}/>
+                            <WeatherCard info = {api} icon = {icon2}/>
+                            <WeatherCard info = {api2} icon = {icon3}/>
+                            <WeatherCard info = {api3} icon = {icon4}/>
+                            <WeatherCard info = {api4} icon = {icon5}/>
+                            <WeatherCard info = {api5} icon = {icon6}/>
                         </div>
                     </div>
                 </div>    

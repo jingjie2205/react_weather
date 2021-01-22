@@ -61,7 +61,7 @@ function Covidhome() {
     }
     return (
         <div>
-            <div className="background">
+            <div className="background2">
                 <NavBar />
                     <div>
                         <div className='app_mainheader' >
