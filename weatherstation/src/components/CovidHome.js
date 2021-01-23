@@ -61,7 +61,7 @@ function Covidhome() {
     }
     return (
         <div>
-            <div className="background2">
+            <div className="background2"/>
                 <NavBar />
                     <div>
                         <div className='app_mainheader' >
@@ -122,8 +122,7 @@ function Covidhome() {
                                 </CardContent>
                             </Card>    
                         </div>    
-                    </div>
-            </div>   
+                    </div>  
         </div>        
     )
 }

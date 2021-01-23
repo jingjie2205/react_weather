@@ -36,9 +36,14 @@
 .app_maincontent{
     flex: 0.9;
 }
+
 .country_dropdown{
     padding-top: 30px;
     padding-bottom: 10px;
+}
+
+.app_graph{
+    opacity: 100;
 }
 
 
