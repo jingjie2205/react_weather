@@ -18,12 +18,13 @@ body{
 
 .home_mainheader{
     margin: auto;
-    padding: 20px;
+    padding-top: 110px;
+    padding-bottom: 50px;
     text-align: center;
 }
 
 .home_body{
-    padding: 20px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
