@@ -6,6 +6,7 @@ import Home from './components/Home'
 // import Forecast1 from './components/24forecast1';
 // import Forecast2 from './components/24forecast2';
 // import CovidChart from './components/Covidgraph';
+import Map from './components/Map'
 import Covidhome from './components/CovidHome';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
@@ -17,6 +18,7 @@ function App() {
       <div className = "app">
         <Route path="/" exact component={Home} />
         <Route path="/covid" component={Covidhome}/>
+        <Route path="/map" component={Map}/>
       </div>
     </Router>  
   );

@@ -19,6 +19,11 @@ function NavBar() {
                             Covid-19
                         </Button>
                     </Link>
+                    <Link to = "/map">  
+                        <Button color='inherit'>
+                            Search
+                        </Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>

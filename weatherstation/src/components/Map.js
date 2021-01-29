@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./style/Map.css"
 import ReactMapGL, {Marker, Popup} from "react-map-gl"
+import { Card, CardContent } from "@material-ui/core"
 import useSwr from "swr";
 
 
@@ -12,8 +13,8 @@ const Map = () => {
     const [viewport, setViewport] = useState({
         latitude: 1.34,
         longitude: 103.84,
-        width: "1000px",
-        height: "600px",
+        width: "1200px",
+        height: "800px",
         zoom: 10.5
     })
 
@@ -33,46 +34,50 @@ const Map = () => {
 
     return(
         <div>
-                <ReactMapGL 
-                    {...viewport}
-                    mapboxApiAccessToken={"pk.eyJ1IjoiamluZ2ppZTIyMDUiLCJhIjoiY2tqYjVrYzM3MnV6NTJwcGRtd3BwaXhlcSJ9.DEfPLacpsYGfm0SVub3x4Q"}
-                    onViewportChange={viewport =>{
-                        setViewport(viewport); 
-                    }}
-                    mapStyle="mapbox://styles/mapbox/streets-v11">
+            <Card>
+                <CardContent>
+                    <ReactMapGL 
+                        {...viewport}
+                        mapboxApiAccessToken={"pk.eyJ1IjoiamluZ2ppZTIyMDUiLCJhIjoiY2tqYjVrYzM3MnV6NTJwcGRtd3BwaXhlcSJ9.DEfPLacpsYGfm0SVub3x4Q"}
+                        onViewportChange={viewport =>{
+                            setViewport(viewport); 
+                        }}
+                        mapStyle="mapbox://styles/mapbox/streets-v11">
 
-                    {datas.map((data,index) => (
-                        <Marker
-                            key = {data.name}
-                            latitude = {data.label_location.latitude}
-                            longitude = {data.label_location.longitude}>
-                                
-                            <button 
-                                className="loc-btn"
-                                onClick = {e =>{
-                                    e.preventDefault();
-                                    setSelectedData(data);
-                                    setIndex(index);
-                                }}>
-                                <img src="https://img.icons8.com/color/48/000000/marker.png" alt="wind"/>
+                        {datas.map((data,index) => (
+                            <Marker
+                                key = {data.name}
+                                latitude = {data.label_location.latitude}
+                                longitude = {data.label_location.longitude}>
+                                    
+                                <button 
+                                    className="loc-btn"
+                                    onClick = {e =>{
+                                        e.preventDefault();
+                                        setSelectedData(data);
+                                        setIndex(index);
+                                    }}>
+                                    <img src="https://img.icons8.com/color/48/000000/marker.png" alt="wind"/>
 
-                            </button>
-                        </Marker>
-                    ))}
+                                </button>
+                            </Marker>
+                        ))}
 
-                    {selectedData ? (
-                        <Popup 
-                        latitude = {selectedData.label_location.latitude}
-                        longitude = {selectedData.label_location.longitude}>
-                        
-                            <div>
-                                <p>{selectedData.name} : {dataforecast[index].forecast}</p>
-                            </div>
-                        </Popup>
-                    ) : null }
+                        {selectedData ? (
+                            <Popup 
+                            latitude = {selectedData.label_location.latitude}
+                            longitude = {selectedData.label_location.longitude}>
+                            
+                                <div>
+                                    <p>{selectedData.name} : {dataforecast[index].forecast}</p>
+                                </div>
+                            </Popup>
+                        ) : null }
 
-                </ReactMapGL>
-            </div>
+                    </ReactMapGL>
+                </CardContent>
+            </Card>    
+        </div>
     )
 }
 
