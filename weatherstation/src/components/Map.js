@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import "./style/Map.css"
 import ReactMapGL, {Marker, Popup} from "react-map-gl"
+//import {Marker, Popup, StaticMap} from "react-map-gl"
 import { Card, CardContent } from "@material-ui/core"
 import useSwr from "swr";
+import NavBar from './NavBar';
 
 
 const Map = () => {
@@ -13,8 +15,8 @@ const Map = () => {
     const [viewport, setViewport] = useState({
         latitude: 1.34,
         longitude: 103.84,
-        width: "1200px",
-        height: "800px",
+        width: "1920px",
+        height: "900px",
         zoom: 10.5
     })
 
@@ -34,8 +36,9 @@ const Map = () => {
 
     return(
         <div>
-            <Card>
-                <CardContent>
+            <div className="background"></div>
+            <NavBar />
+                <div className="map">
                     <ReactMapGL 
                         {...viewport}
                         mapboxApiAccessToken={"pk.eyJ1IjoiamluZ2ppZTIyMDUiLCJhIjoiY2tqYjVrYzM3MnV6NTJwcGRtd3BwaXhlcSJ9.DEfPLacpsYGfm0SVub3x4Q"}
@@ -47,8 +50,8 @@ const Map = () => {
                         {datas.map((data,index) => (
                             <Marker
                                 key = {data.name}
-                                latitude = {data.label_location.latitude}
-                                longitude = {data.label_location.longitude}>
+                                latitude = {data.label_location.latitude + 0.03}
+                                longitude = {data.label_location.longitude - 0.013}>
                                     
                                 <button 
                                     className="loc-btn"
@@ -65,18 +68,17 @@ const Map = () => {
 
                         {selectedData ? (
                             <Popup 
-                            latitude = {selectedData.label_location.latitude}
-                            longitude = {selectedData.label_location.longitude}>
+                            latitude = {selectedData.label_location.latitude + 0.03}
+                            longitude = {selectedData.label_location.longitude + 0.001}>
                             
-                                <div>
+                                <div className="popfont">
                                     <p>{selectedData.name} : {dataforecast[index].forecast}</p>
                                 </div>
                             </Popup>
                         ) : null }
 
-                    </ReactMapGL>
-                </CardContent>
-            </Card>    
+                    </ReactMapGL> 
+                </div>
         </div>
     )
 }

@@ -1,3 +1,20 @@
+*{
+    margin: 0;
+}
+
+.background3{
+    background-image: url("https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg');
+    text-align: center;
+    position:absolute;
+    min-width: 100%;
+    min-height: 1600px;
+    background-size: cover;
+    /* filter: blur(3px); */
+    z-index: -1;    
+    background-repeat: repeat-y;
+    }
+
 /* ======================== West ======================== */
 .button-west{
     background: none;
@@ -85,4 +102,28 @@
 
 .pop-east{
     z-index: 999;
+}
+
+.first_forecast{
+    text-align: center;
+}
+
+.map_main{
+    text-align: center;
+    padding-top: 90px;
+}
+
+body{
+    color: white;
+}
+
+.date{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.popfont{
+    color: black;
+    font-size: 30px;
 }

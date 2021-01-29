@@ -4,9 +4,6 @@ import React, { useState, useEffect } from 'react'
 import Statusbox from "./Statusbox"
 import Table from "./Table"
 import Graph from "./Graph"
-import moment from 'moment';
-import { Line } from 'react-chartjs-2'
-import Covidgraph from './Covidgraph'
 import NavBar from './NavBar';
 
 function Covidhome() {

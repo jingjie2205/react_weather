@@ -196,9 +196,7 @@ const Forecast1 = () => {
                                 <p>East: {data_east}</p>
                             </div>
                         </Popup>
-                    ) : null }                         
-                    
-
+                    ) : null }     
                 </ReactMapGL>
                 <div>second</div>
             </div>

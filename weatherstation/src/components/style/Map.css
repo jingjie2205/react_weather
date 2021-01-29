@@ -3,3 +3,19 @@
     border: none;
     background: transparent;
 }
+
+.map{
+    padding-top: 65px;
+}
+
+.background{
+    background-image: url("https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg');
+    text-align: center;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    /* filter: blur(3px); */
+    z-index: -1;    
+    }
