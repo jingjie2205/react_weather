@@ -5,7 +5,7 @@ import Forecast from './components/24forecast'
 import Map from './components/Map'
 import Covidhome from './components/CovidHome';
 // import Carpark from './components/Carpark';
-import News from './components/News';
+import NewsHome from './components/NewsHome';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/covid" component={Covidhome}/>
         <Route path="/map" component={Map}/>
         <Route path="/24-hour" component={Forecast}/>
-        <Route path="/news" component={News}/>
+        <Route path="/news" component={NewsHome}/>
       </div>
     </Router>  
   );

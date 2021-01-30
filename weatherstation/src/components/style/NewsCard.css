@@ -1,5 +1,43 @@
 .source_date{
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+}
+
+.news_main{
+    height: 850px; 
+    width: 100%; 
+    overflow-y: scroll;
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.newscard{
+    max-width: 600px;
+    padding: 20px;
+}
+
+.NewsCard_Image{
+    display:inline-block;
+    max-width:400px;
+    height:auto;
+}
+
+.NewsCard_Image:hover {
+    display: inline-block;
+    max-width:410px;
+    height:auto;
+    z-index:999;
+}
+
+.background2{
+    background-image: url("https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), url('https://static-cse.canva.com/blob/139636/00-winterlandscapes_featimage.jpg');
+    text-align: center;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    /* filter: blur(3px); */
+    z-index: -1;    
 }
