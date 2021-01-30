@@ -1,11 +1,12 @@
 import React from "react";
 import './components/style/App.css';
-import NavBar from './components/NavBar';
 import Home from './components/Home'
 import Forecast from './components/24forecast'
 import Map from './components/Map'
 import Covidhome from './components/CovidHome';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+// import Carpark from './components/Carpark';
+import News from './components/News';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/covid" component={Covidhome}/>
         <Route path="/map" component={Map}/>
         <Route path="/24-hour" component={Forecast}/>
+        <Route path="/news" component={News}/>
       </div>
     </Router>  
   );

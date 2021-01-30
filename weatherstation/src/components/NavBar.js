@@ -29,6 +29,11 @@ function NavBar() {
                             24-hour
                         </Button>
                     </Link>
+                    <Link to = "/news">  
+                        <Button color='inherit'>
+                            News
+                        </Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./style/Map.css"
 import ReactMapGL, {Marker, Popup} from "react-map-gl"
-//import {Marker, Popup, StaticMap} from "react-map-gl"
-import { Card, CardContent } from "@material-ui/core"
 import useSwr from "swr";
 import NavBar from './NavBar';
 
