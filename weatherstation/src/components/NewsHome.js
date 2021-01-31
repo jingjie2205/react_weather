@@ -1,20 +1,22 @@
-import React , { useState, useEffect } from 'react'
+import React from 'react'
 import NavBar from './NavBar';
-import News from './News';
+import NewsInt from './News';
 
+function NewsIntHome() {
 
-function NewsHome() {
-
+    
+    
     return (
         <div>
             <div className="background2">
                 <NavBar />
                     <div>
-                        <News />
+                        <NewsInt/>
                     </div>
             </div>
         </div>
     )
 }
 
-export default NewsHome
+export default NewsIntHome
+
