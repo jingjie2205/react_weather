@@ -29,7 +29,7 @@ function NavBar() {
                         <Grid item>
                             <Link to = "/map" style={{ textDecoration: 'none' }}>  
                                 <Button style={{borderRadius: 20, backgroundColor: "#FFFF", fontSize: "15px"}} variant="contained">
-                                    Search
+                                    2-Hour
                                 </Button>
                             </Link>
                         </Grid>
@@ -44,6 +44,13 @@ function NavBar() {
                             <Link to = "/news" style={{ textDecoration: 'none' }}>  
                                 <Button style={{borderRadius: 20, backgroundColor: "#FFFF", fontSize: "15px"}} variant="contained">
                                     News
+                                </Button>
+                            </Link>
+                        </Grid>
+                        <Grid item>
+                            <Link to = "/esp" style={{ textDecoration: 'none' }}>  
+                                <Button style={{borderRadius: 20, backgroundColor: "#FFFF", fontSize: "15px"}} variant="contained">
+                                    Esp-32
                                 </Button>
                             </Link>
                         </Grid>
