@@ -5,6 +5,7 @@ import Forecast from './components/24forecast'
 import Map from './components/Map'
 import Covidhome from './components/CovidHome';
 // import Carpark from './components/Carpark';
+import Esp from './components/Esp';
 import NewsIntHome from './components/NewsHome'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/map" component={Map}/>
         <Route path="/24-hour" component={Forecast}/>
         <Route path="/news" component={NewsIntHome}/>
+        <Route path="/esp" component={Esp}/>
       </div>
     </Router>  
   );
